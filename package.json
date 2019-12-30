@@ -1,0 +1,20 @@
+{
+  "name": "habicord-bot",
+  "version": "1.0.0",
+  "description": "",
+  "author": "carl.vuorinen@gmail.com",
+  "license": "MIT",
+  "scripts": {
+    "build": "netlify-lambda build src/functions",
+    "dev": "netlify-lambda serve src/functions",
+    "dev:debug": "npx --node-arg=--inspect netlify-lambda serve src/functions --config ./webpack.functions.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "encoding": "^0.1.12",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "netlify-lambda": "^1.6.3"
+  }
+}
