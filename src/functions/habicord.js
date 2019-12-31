@@ -62,6 +62,16 @@ exports.handler = async function(event) {
         discordMessage = `Congratulations, you have found all items and the quest has ended!
 > ${habiticaMessage}`;
         break;
+      case "boss_damage":
+        if (
+          params.chat.info.bossDamage &&
+          parseFloat(params.chat.info.bossDamage) > 20
+        ) {
+          const attackMessage = habiticaMessage.match(/\. (.+\.)`?$/i);
+          discordMessage = `Help, we are taking a beating here!
+> ${attackMessage.length ? attackMessage[1] : habiticaMessage}`;
+        }
+        break;
     }
 
     if (discordMessage) {
