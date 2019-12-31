@@ -46,16 +46,22 @@ exports.handler = async function(event) {
     }
 
     const habiticaMessage = params.chat.unformattedText || params.chat.text;
+    const habiticaMessageType = params.chat.info && params.chat.info.type;
     let discordMessage;
 
-    if (habiticaMessage.match(/^`?You defeated/i)) {
-      //console.log(`Matched "You defeated" in "${habiticaMessage}"`);
-      discordMessage = `Hooray, the quest has ended and the party remains victorious!
+    switch (habiticaMessageType) {
+      case "quest_start":
+        discordMessage = `Get ready for a new adventure!
 > ${habiticaMessage}`;
-    } else if (habiticaMessage.match(/^`?Your quest.+has started\.`?$/i)) {
-      //console.log(`Matched "Your quest ... has started." in "${habiticaMessage}"`);
-      discordMessage = `Get ready for a new adventure!
+        break;
+      case "boss_defeated":
+        discordMessage = `Hooray, the boss is defeated and the party remains victorious!
+  > ${habiticaMessage}`;
+        break;
+      case "all_items_found":
+        discordMessage = `Congratulations, you have found all items and the quest has ended!
 > ${habiticaMessage}`;
+        break;
     }
 
     if (discordMessage) {
