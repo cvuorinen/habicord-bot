@@ -1,5 +1,7 @@
 import fetch from "node-fetch";
 
+const healer = `<@&${process.env.DISCORD_HEALER_ROLE_ID}>`;
+
 exports.handler = async function(event) {
   if (event.httpMethod !== "POST") {
     return { statusCode: 405, body: "Method Not Allowed" };
@@ -73,7 +75,7 @@ exports.handler = async function(event) {
         } else {
           const lowHpCount = await checkPartyHealth();
           if (lowHpCount > 2) {
-            discordMessage = `Alert the @Healer! Party needs some :heart:`;
+            discordMessage = `${healer}s alert! Party needs some :heart:`;
           }
         }
         break;
