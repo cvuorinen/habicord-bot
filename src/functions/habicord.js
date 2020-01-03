@@ -58,7 +58,7 @@ exports.handler = async function(event) {
         break;
       case "boss_defeated":
         discordMessage = `Hooray, the boss is defeated and the party remains victorious!
-  > ${habiticaMessage}`;
+> ${habiticaMessage}`;
         break;
       case "all_items_found":
         discordMessage = `Congratulations, you have found all items and the quest has ended!
