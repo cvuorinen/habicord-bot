@@ -8,7 +8,7 @@ exports.handler = async function (event) {
 
   try {
     const params = JSON.parse(event.body);
-    console.log(params);
+    console.log(`Received webhook "${params.webhookType}"` /*, params*/);
 
     switch (params.webhookType) {
       case "groupChatReceived":
