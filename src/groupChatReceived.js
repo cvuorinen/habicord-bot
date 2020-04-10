@@ -46,15 +46,15 @@ export async function handleGroupChatReceived(params) {
     switch (habiticaMessageType) {
       case "quest_start":
         discordMessage = `Get ready for a new adventure!
-  > ${habiticaMessage}`;
+> ${habiticaMessage}`;
         break;
       case "boss_defeated":
         discordMessage = `Hooray, the boss is defeated and the party remains victorious!
-  > ${habiticaMessage}`;
+> ${habiticaMessage}`;
         break;
       case "all_items_found":
         discordMessage = `Congratulations, you have found all items and the quest has ended!
-  > ${habiticaMessage}`;
+> ${habiticaMessage}`;
         break;
       case "boss_damage":
         if (
@@ -63,7 +63,7 @@ export async function handleGroupChatReceived(params) {
         ) {
           const attackMessage = habiticaMessage.match(/\. (.+\.)`?$/i);
           discordMessage = `Send help, we are taking a beating here!
-  > ${attackMessage.length ? attackMessage[1] : habiticaMessage}`;
+> ${attackMessage.length ? attackMessage[1] : habiticaMessage}`;
         } else {
           const lowHpCount = await checkPartyHealth();
           if (lowHpCount > 2) {
