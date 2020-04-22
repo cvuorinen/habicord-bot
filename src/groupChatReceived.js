@@ -47,6 +47,10 @@ export async function handleGroupChatReceived(params) {
       case "quest_start":
         discordMessage = `Get ready for a new adventure!
 > ${habiticaMessage}`;
+        if (habiticaMessage.indexOf('Lost Masterclasser') > 0) {
+          discordMessage = `It's Anti'zinnya :scream: Everyone take care!
+> ${habiticaMessage}`;
+        }
         break;
       case "boss_defeated":
         discordMessage = `Hooray, the boss is defeated and the party remains victorious!
