@@ -47,7 +47,7 @@ export async function handleGroupChatReceived(params) {
       case "quest_start":
         discordMessage = `Get ready for a new adventure!
 > ${habiticaMessage}`;
-        if (habiticaMessage.indexOf('Lost Masterclasser') > 0) {
+        if (habiticaMessage.indexOf("Lost Masterclasser") > 0) {
           discordMessage = `It's Anti'zinnya :scream: Everyone take care!
 > ${habiticaMessage}`;
         }
@@ -58,6 +58,10 @@ export async function handleGroupChatReceived(params) {
         break;
       case "all_items_found":
         discordMessage = `Congratulations, you have found all items and the quest has ended!
+> ${habiticaMessage}`;
+        break;
+      case "boss_rage":
+        discordMessage = `Beware brave adventurers!
 > ${habiticaMessage}`;
         break;
       case "boss_damage":
