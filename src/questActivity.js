@@ -24,7 +24,7 @@ export async function handleQuestActivity(params) {
 
     switch (params.type) {
       case "questFinished":
-        callGoogleScript(params);
+        await callGoogleScript(params);
         break;
       case "questInvited":
         await Discord.sendMessage(
@@ -48,6 +48,6 @@ function callGoogleScript(params) {
     },
   };
 
-  // no need to await, it takes a while to finish and we don't need the response
-  fetch(process.env.GOOGLE_SCRIPT_URL, options);
+  // need to await even though we don't need the response, otherwise it just doesn't work
+  return fetch(process.env.GOOGLE_SCRIPT_URL, options);
 }
