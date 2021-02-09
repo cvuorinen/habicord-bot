@@ -6,6 +6,6 @@ Runs as a serverless lambda function on [Netlify](https://www.netlify.com/docs/f
 
 Features:
 
-- Webhook (`type: groupChatReceived`) needs to be set up and pointed to the URL of the function
-- Bot reacts to different types of messages, currently mainly system messages
-  - See code at [habicord.js](src/functions/habicord.js) for more details
+- Webhook (type: `groupChatReceived` and `questActivity`) needs to be set up and pointed to the URL of the function
+- Bot announces new quests and reacts to different types of messages, mainly system messages
+- See code for more details
