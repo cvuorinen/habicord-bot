@@ -22,16 +22,8 @@ export async function handleQuestActivity(params) {
       return { statusCode: 400, body: "Bad Request" };
     }
 
-    switch (params.type) {
-      case "questFinished":
-        await callGoogleScript(params);
-        break;
-      case "questInvited":
-        await Discord.sendMessage(
-          "Hello adventurers! New quest is up, @everyone please join."
-        );
-        break;
-    }
+    // quest queue and auto-start handled in Google script
+    await callGoogleScript(params);
   } catch (err) {
     console.error(err);
   }
