@@ -1,5 +1,3 @@
-import fetch from "node-fetch";
-
 export const healerMention = `<@&${process.env.DISCORD_HEALER_ROLE_ID}>`;
 export const Discord = {
   sendMessage: async (content) => {
