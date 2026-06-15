@@ -19,8 +19,13 @@ export async function handleQuestActivity(params) {
       return { statusCode: 400, body: "Bad Request" };
     }
 
-    // quest queue and auto-start handled in Google script
-    await callGoogleScript(params);
+    if (process.env.GOOGLE_SCRIPT_URL) {
+      await callGoogleScript(params);
+    } else {
+      console.log(
+        `handleQuestActivity called, but GOOGLE_SCRIPT_URL is missing. Would have sent: ${JSON.stringify(params)}`
+      );
+    }
   } catch (err) {
     console.error(err);
   }
