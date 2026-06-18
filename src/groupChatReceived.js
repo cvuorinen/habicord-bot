@@ -98,7 +98,7 @@ export async function handleGroupChatReceived(params) {
   };
 }
 
-async function checkPartyHealth(lowHpLimit = 25) {
+async function checkPartyHealth(lowHpLimit = 30) {
   const members = await Habitica.fetchPartyMembers();
 
   return members
