@@ -19,6 +19,14 @@ export async function handleQuestActivity(params) {
       return { statusCode: 400, body: "Bad Request" };
     }
 
+    if (params.type === 'questInvited') {
+      const discordMessage = 'Hello adventurers! The party is being called to a new quest! Answer the summons and accept your invitation.';
+      console.log(
+        `Sending message to Discord "${discordMessage}" in reaction to Habitica questInvited`
+      );
+      await Discord.sendMessage(discordMessage);
+    }
+
     if (process.env.GOOGLE_SCRIPT_URL) {
       await callGoogleScript(params);
     } else {
