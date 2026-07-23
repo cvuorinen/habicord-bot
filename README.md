@@ -2,7 +2,7 @@
 
 Serverless function that connects a Habitica webhook to a Discord webhook
 
-Runs as a serverless lambda function on [Netlify](https://www.netlify.com/docs/functions/).
+Runs as a serverless function on [Netlify](https://www.netlify.com/docs/functions/).
 
 Features:
 
