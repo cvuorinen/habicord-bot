@@ -1,3 +1,5 @@
+import { Discord } from "./discord";
+
 export async function handleQuestActivity(params) {
   /**
    * Format of the incoming params:
